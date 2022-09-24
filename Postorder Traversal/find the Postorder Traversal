@@ -1,0 +1,24 @@
+Input:
+        19
+     /     \
+    10      8
+  /    \
+ 11    13
+Output: 11 13 10 8 19
+
+
+void print(Node* root, vector<int> &v){
+    if(root==NULL){
+        return;
+    }
+    print(root->left,v);
+    print(root->right,v);
+    v.push_back(root->data);
+}
+vector <int> postOrder(Node* root)
+{
+  // Your code here
+  vector<int> v;
+  print(root,v);
+  return v;
+}
