@@ -1,0 +1,23 @@
+//Input:
+//        1      
+//      /          
+//    4    
+//  /    \   
+//4       2
+//Output: 1 4 4 2
+
+void print(Node* root ,vector<int> &v){
+     if(root==NULL){
+         return;
+     }
+     v.push_back(root->data);
+     print(root->left,v);
+     print(root->right,v);
+    }
+vector <int> preorder(Node* root)
+{
+  // Your code here
+  vector<int>v;
+    print(root , v);
+    return v;
+}
