@@ -1,0 +1,40 @@
+Given a binary string, that is it contains only 0s and 1s. 
+We need to make this string a sequence of alternate characters by flipping some of the bits, 
+our goal is to minimize the number of bits to be flipped.
+
+Input:
+S = "0001010111" 
+Output: 2
+Explanation: We can flip the 1st and 8th bit 
+bit to have "0101010101"
+101.
+
+Your Task:
+You don't need to read input or print anything. Your task is to complete the function minFlips()
+which takes the string S as input and returns the minimum number of flips required.
+
+Expected Time Complexity: O(|S|).
+Expected Auxiliary Space: O(1).
+
+solution...........................
+
+int minFlips (string S)
+{
+    // your code here
+    int c1=0,c2=0;
+    for(int i=0;i<S.size();i++){
+        if(i%2==0&&S[i]=='0'){
+            c1++;
+        }
+        if(i%2!=0&&S[i]=='1'){
+            c1++;
+        }
+        if(i%2==0&&S[i]=='1'){
+            c2++;
+        }
+        if(i%2!=0&&S[i]=='0'){
+            c2++;
+        }
+    }
+    return min(c1,c2);
+}
